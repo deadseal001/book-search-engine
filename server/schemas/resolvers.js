@@ -27,7 +27,7 @@ const resolvers = {
             const user = await User.findOne({ email });
 
             if (!user) {
-                throw new AuthenticationError('No user found');
+                throw new AuthenticationError('Incorrect credentials');
             }
 
             const correctPW=await user.isCorrectPassword(password);
