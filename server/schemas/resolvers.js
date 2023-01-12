@@ -1,11 +1,8 @@
-const {User, book}=require ('../models');
+const {User, Book}=require ('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const {signToken}=require('../utils/auth');
-const auth = require('../utils/auth');
-
 
 const resolvers = {
-
     Query: {
         me: async (parnet, args, context)=>{
             if (context.user){
@@ -41,10 +38,10 @@ const resolvers = {
 
         saveBook: async (parent, args, context)=>{
             if (context.user) {
-                const updateUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id},
-                    { $addToSet: {saveBooks:args.input}},
-                    {new:ture}
+                const updateUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: {savedBooks: book} },
+                    { new: true }
                 );
             return updateUser;
             }
@@ -54,8 +51,10 @@ const resolvers = {
 
         removeBook: async (parent, args, context) =>{
             if (context.user){
-                const updateUser = await User.findByIdAndUpdate(
-                    context.user._id, {$pull: {saveBooks: {bookId: args.bookId}}}, {new: true}
+                const updateUser = await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    { $pull: { savedBooks: { bookId: bookId } } },
+                    { new: true }
                 );
 
                 return updateUser;
