@@ -1,22 +1,23 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "engines": {
+    "npm": "6.x"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "seed": "node seeders/seeds.js"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^3.11.1",
-    "bcrypt": "^5.0.0",
+    "apollo-server-express": "^2.25.2",
+    "bcrypt": "^4.0.1",
     "express": "^4.17.1",
-    "faker": "^6.6.6",
-    "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10"
   },
