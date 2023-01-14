@@ -40,6 +40,7 @@ Get into the folder and run the following commands to install the dependencies:
 The link to the deployed application is: https://book-search-wl.herokuapp.com/.
 
 ## Screenshot
+<img width="1637" alt="Screenshot 2023-01-14 at 12 13 16 AM" src="https://user-images.githubusercontent.com/110753777/212459379-0f6a5365-652f-48f2-8262-d5f0cb4a4500.png">
 
 
 
